@@ -12,6 +12,29 @@ const perPage = 10;
 
 const sites = [
   {
+    "title": "Свадебный билет",
+    "category": "Свадебные сайты",
+    "format": "Свадьба",
+    "mood": "Готовый шаблон",
+    "coverImage": "assets/catalog/wedding-example5-ticket-cover.png",
+    "previewDesktop": "assets/catalog/wedding-example5-ticket-cover.png",
+    "previewMobile": "assets/catalog/wedding-example5-ticket-cover.png",
+    "url": "https://kvguliaeva.github.io/wedding_example5/",
+    "description": "Элегантный свадебный сайт в эстетике билета и путешествия: темно-синяя палитра, календарь, тайминг, локация, дресс-код, пожелания и контакты гостей.",
+    "tags": [
+      "свадьба",
+      "билет",
+      "готовый сайт"
+    ],
+    "palette": [
+      "#081a33",
+      "#ffffff",
+      "#d8d0c4",
+      "#0d0d0f",
+      "#b21d22"
+    ]
+  },
+  {
     "title": "Сад нежности",
     "category": "Свадебные сайты",
     "format": "Свадьба",
