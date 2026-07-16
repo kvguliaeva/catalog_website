@@ -58,6 +58,29 @@ const sites = [
     ]
   },
   {
+    "title": "Записка",
+    "category": "Свадебные сайты",
+    "format": "Свадьба",
+    "mood": "Готовый шаблон",
+    "coverImage": "assets/catalog/wedding-example4-note-cover.png",
+    "previewDesktop": "assets/catalog/wedding-example4-note-cover.png",
+    "previewMobile": "assets/catalog/wedding-example4-note-cover.png",
+    "url": "https://kvguliaeva.github.io/wedding_example4/",
+    "description": "Легкий свадебный сайт в стиле милой рукописной записки: синие акценты, скетчи, программа дня, дресс-код, таймер, пожелания, контакты и анкета гостей.",
+    "tags": [
+      "свадьба",
+      "скетчи",
+      "готовый сайт"
+    ],
+    "palette": [
+      "#ffffff",
+      "#1555d9",
+      "#f2eadf",
+      "#111111",
+      "#d4b894"
+    ]
+  },
+  {
     "title": "Тихая классика",
     "category": "Свадебные сайты",
     "format": "Свадьба",
@@ -293,7 +316,7 @@ const sites = [
     ]
   },
   {
-    "title": "Черная линия",
+    "title": "Тренд 2026",
     "category": "Свадебные сайты",
     "format": "Свадьба",
     "mood": "Готовый шаблон",
@@ -301,10 +324,10 @@ const sites = [
     "previewDesktop": "assets/catalog/semen-svetlana-contrast-cover.png",
     "previewMobile": "assets/catalog/semen-svetlana-contrast-cover.png",
     "url": "https://letterwedding.github.io/wedding_semen_svetlana/",
-    "description": "Контрастный свадебный сайт в черно-белой эстетике: строгая типографика, календарь, тайминг, дресс-код, пожелания, анкета гостей и финальный экран.",
+    "description": "Контрастный свадебный сайт в актуальной черно-белой эстетике: строгая типографика, календарь, тайминг, дресс-код, пожелания, анкета гостей и финальный экран.",
     "tags": [
       "свадьба",
-      "контраст",
+      "тренд 2026",
       "готовый сайт"
     ],
     "palette": [
