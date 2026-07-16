@@ -35,6 +35,29 @@ const sites = [
     ]
   },
   {
+    "title": "Сад огней",
+    "category": "Свадебные сайты",
+    "format": "Свадьба",
+    "mood": "Готовый шаблон",
+    "coverImage": "assets/catalog/wedding-example3-garden-lights-cover.png",
+    "previewDesktop": "assets/catalog/wedding-example3-garden-lights-cover.png",
+    "previewMobile": "assets/catalog/wedding-example3-garden-lights-cover.png",
+    "url": "https://kvguliaeva.github.io/wedding_example3/",
+    "description": "Атмосферный свадебный сайт в глубокой зеленой палитре с ботаникой, огоньками и мягкой вечерней эстетикой: приглашение, локация, тайминг, дресс-код, пожелания, контакты и анкета гостей.",
+    "tags": [
+      "свадьба",
+      "зелень",
+      "готовый сайт"
+    ],
+    "palette": [
+      "#263a25",
+      "#f5efe4",
+      "#d7c7aa",
+      "#ffffff",
+      "#111111"
+    ]
+  },
+  {
     "title": "Тихая классика",
     "category": "Свадебные сайты",
     "format": "Свадьба",
@@ -43,11 +66,11 @@ const sites = [
     "previewDesktop": "assets/catalog/aleksandra-nikita-cover.png",
     "previewMobile": "assets/catalog/aleksandra-nikita-cover.png",
     "url": "https://letterwedding.github.io/wedding_aleksandra_nikita/",
-    "description": "Сдержанный свадебный сайт в эстетике черно-белой классики: тайминг, локации, дресс-код, контакты, пожелания и анкета гостей. Есть версия в другом цвете.",
+    "description": "Сдержанный свадебный сайт в эстетике черно-белой классики: тайминг, локации, дресс-код, контакты, пожелания и анкета гостей. Есть версии в других цветах.",
     "tags": [
       "свадьба",
       "классика",
-      "2 цветовые версии"
+      "3 цветовые версии"
     ],
     "palette": [
       "#f6f1ea",
@@ -56,7 +79,10 @@ const sites = [
       "#111111",
       "#a80306"
     ],
-    "variantUrl": "https://letterwedding.github.io/wedding_alia_rishat/"
+    "variantUrls": [
+      "https://letterwedding.github.io/wedding_alia_rishat/",
+      "https://letterwedding.github.io/wedding_roman_gulnara/"
+    ]
   },
   {
     "title": "Ботанический свет",
@@ -311,6 +337,29 @@ const sites = [
       "#ffffff",
       "#0b0b0b"
     ]
+  },
+  {
+    "title": "Noir Party",
+    "category": "Взрослый день рождения",
+    "format": "День рождения",
+    "mood": "Готовый шаблон",
+    "coverImage": "assets/catalog/adult-birthday-noir-cover.png",
+    "previewDesktop": "assets/catalog/adult-birthday-noir-cover.png",
+    "previewMobile": "assets/catalog/adult-birthday-noir-cover.png",
+    "url": "https://kvguliaeva.github.io/happybirthdayshablon/",
+    "description": "Стильный сайт-приглашение на взрослый день рождения в черно-бежевой fashion-эстетике: дата, локация, программа дня, дресс-код, пожелания, контакты и анкета гостей.",
+    "tags": [
+      "день рождения",
+      "fashion",
+      "готовый сайт"
+    ],
+    "palette": [
+      "#111111",
+      "#d0ad91",
+      "#f4eee5",
+      "#ffffff",
+      "#8d1c24"
+    ]
   }
 ];
 
@@ -434,15 +483,17 @@ function renderCards() {
       });
     }
 
-    if (site.variantUrl) {
+    const variantUrls = site.variantUrls || (site.variantUrl ? [site.variantUrl] : []);
+
+    variantUrls.forEach((variantUrl, index) => {
       const variantLink = document.createElement("a");
       variantLink.className = "variant-link";
-      variantLink.href = site.variantUrl;
+      variantLink.href = variantUrl;
       variantLink.target = "_blank";
       variantLink.rel = "noreferrer";
-      variantLink.textContent = "Другой цвет";
+      variantLink.textContent = index === 0 ? "Другой цвет" : "Еще цвет";
       cardActions.append(variantLink);
-    }
+    });
 
     grid.append(node);
   });
