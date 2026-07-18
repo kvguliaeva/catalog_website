@@ -263,6 +263,17 @@
       </article>
     </template>
 
+    <div class="variant-modal" id="variant-modal" hidden>
+      <div class="variant-modal-backdrop" data-close-variants></div>
+      <section class="variant-modal-panel" role="dialog" aria-modal="true" aria-labelledby="variant-modal-title">
+        <button class="variant-modal-close" type="button" aria-label="Закрыть" data-close-variants></button>
+        <p class="eyebrow">Цветовые варианты</p>
+        <h2 id="variant-modal-title">Выберите цвет</h2>
+        <p class="variant-modal-note">Любой макет будет полностью адаптирован под вас.</p>
+        <div class="variant-modal-options" id="variant-modal-options"></div>
+      </section>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>

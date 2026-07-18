@@ -12,6 +12,52 @@ const perPage = 10;
 
 const sites = [
   {
+    "title": "lilies",
+    "category": "Свадебные сайты",
+    "format": "Свадьба",
+    "mood": "Готовый шаблон",
+    "coverImage": "assets/catalog/wedding-example6-lilies-cover.png",
+    "previewDesktop": "assets/catalog/wedding-example6-lilies-cover.png",
+    "previewMobile": "assets/catalog/wedding-example6-lilies-cover.png",
+    "url": "https://kvguliaeva.github.io/wedding_example6/",
+    "description": "Нежный свадебный сайт с лилиями, розовой каллиграфией и мягкой акварельной зеленью: приглашение, программа дня, дресс-код, локация, пожелания, FAQ и анкета гостей.",
+    "tags": [
+      "свадьба",
+      "лилии",
+      "готовый сайт"
+    ],
+    "palette": [
+      "#fff6df",
+      "#eaa0b8",
+      "#8b9564",
+      "#b98f68",
+      "#ffffff"
+    ]
+  },
+  {
+    "title": "Жемчужина",
+    "category": "Свадебные сайты",
+    "format": "Свадьба",
+    "mood": "Готовый шаблон",
+    "coverImage": "assets/catalog/wedding-2-pearl-cover.png",
+    "previewDesktop": "assets/catalog/wedding-2-pearl-cover.png",
+    "previewMobile": "assets/catalog/wedding-2-pearl-cover.png",
+    "url": "https://kvguliaeva.github.io/wedding_2/",
+    "description": "Изысканный свадебный сайт в жемчужно-молочной эстетике: нежные ленты, перламутровые детали, расписание дня, локация, дресс-код, пожелания и анкета гостей.",
+    "tags": [
+      "свадьба",
+      "жемчуг",
+      "готовый сайт"
+    ],
+    "palette": [
+      "#fbf7ee",
+      "#d8c7ad",
+      "#9b8a7f",
+      "#7d93a8",
+      "#ffffff"
+    ]
+  },
+  {
     "title": "Свадебный билет",
     "category": "Свадебные сайты",
     "format": "Свадьба",
@@ -125,13 +171,29 @@ const sites = [
       "#111111",
       "#a80306"
     ],
-    "variantUrls": [
-      "https://letterwedding.github.io/wedding_alia_rishat/",
-      "https://letterwedding.github.io/wedding_roman_gulnara/"
+    "variants": [
+      {
+        "name": "Классический",
+        "url": "https://letterwedding.github.io/wedding_aleksandra_nikita/",
+        "color": "#111111",
+        "textColor": "#ffffff"
+      },
+      {
+        "name": "Голубой",
+        "url": "https://letterwedding.github.io/wedding_alia_rishat/",
+        "color": "#c8d8e8",
+        "textColor": "#283c4d"
+      },
+      {
+        "name": "Розовый",
+        "url": "https://letterwedding.github.io/wedding_roman_gulnara/",
+        "color": "#f3c6d3",
+        "textColor": "#73364d"
+      }
     ]
   },
   {
-    "title": "Ботанический свет",
+    "title": "Ботанический сад",
     "category": "Свадебные сайты",
     "format": "Свадьба",
     "mood": "Готовый шаблон",
@@ -152,7 +214,20 @@ const sites = [
       "#ffffff",
       "#3d372d"
     ],
-    "variantUrl": "https://letterwedding.github.io/wedding_andr_alisa/"
+    "variants": [
+      {
+        "name": "Зеленый",
+        "url": "https://letterwedding.github.io/wedding_anast_serg/",
+        "color": "#cfe7b9",
+        "textColor": "#314326"
+      },
+      {
+        "name": "Розовый",
+        "url": "https://letterwedding.github.io/wedding_andr_alisa/",
+        "color": "#f0c6d1",
+        "textColor": "#6f3847"
+      }
+    ]
   },
   {
     "title": "Бордовая линия",
@@ -421,6 +496,9 @@ const totalCount = document.querySelector("#total-count");
 const template = document.querySelector("#site-card-template");
 const showMoreButton = document.querySelector("#show-more");
 const moreTemplates = document.querySelector("#more-templates");
+const variantModal = document.querySelector("#variant-modal");
+const variantModalTitle = document.querySelector("#variant-modal-title");
+const variantModalOptions = document.querySelector("#variant-modal-options");
 
 const categories = [
   { label: "Свадьба", value: "Свадебные сайты", icon: "💍" },
@@ -529,17 +607,16 @@ function renderCards() {
       });
     }
 
-    const variantUrls = site.variantUrls || (site.variantUrl ? [site.variantUrl] : []);
+    const variants = getVariants(site);
 
-    variantUrls.forEach((variantUrl, index) => {
-      const variantLink = document.createElement("a");
-      variantLink.className = "variant-link";
-      variantLink.href = variantUrl;
-      variantLink.target = "_blank";
-      variantLink.rel = "noreferrer";
-      variantLink.textContent = index === 0 ? "Другой цвет" : "Еще цвет";
-      cardActions.append(variantLink);
-    });
+    if (variants.length > 1) {
+      const variantButton = document.createElement("button");
+      variantButton.type = "button";
+      variantButton.className = "variant-link";
+      variantButton.textContent = "Цветовые варианты";
+      variantButton.addEventListener("click", () => openVariantModal(site, variants));
+      cardActions.append(variantButton);
+    }
 
     grid.append(node);
   });
@@ -555,6 +632,58 @@ function renderShowMore(total) {
   if (moreTemplates) {
     moreTemplates.hidden = hasMore;
   }
+}
+
+function getVariants(site) {
+  if (Array.isArray(site.variants) && site.variants.length) {
+    return site.variants;
+  }
+
+  const fallbackUrls = site.variantUrls || (site.variantUrl ? [site.variantUrl] : []);
+  if (!fallbackUrls.length) return [];
+
+  return [
+    {
+      name: "Основной",
+      url: site.url,
+      color: site.palette?.[0] || "#ffffff",
+      textColor: "#15100f",
+    },
+    ...fallbackUrls.map((url, index) => ({
+      name: index === 0 ? "Другой цвет" : "Еще цвет",
+      url,
+      color: site.palette?.[index + 1] || "#f3eadf",
+      textColor: "#15100f",
+    })),
+  ];
+}
+
+function openVariantModal(site, variants) {
+  if (!variantModal || !variantModalOptions || !variantModalTitle) return;
+
+  variantModalTitle.textContent = site.title;
+  variantModalOptions.innerHTML = "";
+
+  variants.forEach((variant) => {
+    const option = document.createElement("a");
+    option.className = "variant-option";
+    option.href = variant.url;
+    option.target = "_blank";
+    option.rel = "noreferrer";
+    option.textContent = variant.name;
+    option.style.backgroundColor = variant.color;
+    option.style.color = variant.textColor || "#15100f";
+    variantModalOptions.append(option);
+  });
+
+  variantModal.hidden = false;
+  document.body.classList.add("is-modal-open");
+}
+
+function closeVariantModal() {
+  if (!variantModal) return;
+  variantModal.hidden = true;
+  document.body.classList.remove("is-modal-open");
 }
 
 async function copyText(text) {
@@ -577,6 +706,18 @@ async function copyText(text) {
 showMoreButton?.addEventListener("click", () => {
   state.visibleCount += perPage;
   renderCards();
+});
+
+variantModal?.addEventListener("click", (event) => {
+  if (event.target.closest("[data-close-variants]")) {
+    closeVariantModal();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && variantModal && !variantModal.hidden) {
+    closeVariantModal();
+  }
 });
 
 renderFilters();

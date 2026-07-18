@@ -788,6 +788,147 @@ h1 {
   color: var(--accent-dark);
 }
 
+button.variant-link {
+  cursor: pointer;
+}
+
+.variant-modal[hidden] {
+  display: none;
+}
+
+.is-modal-open {
+  overflow: hidden;
+}
+
+.variant-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.variant-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(21, 16, 15, 0.34), rgba(21, 16, 15, 0.34)),
+    rgba(255, 248, 247, 0.24);
+  backdrop-filter: blur(14px);
+}
+
+.variant-modal-panel {
+  position: relative;
+  width: min(640px, 100%);
+  min-height: min(720px, calc(100vh - 36px));
+  padding: clamp(34px, 7vw, 68px) clamp(24px, 6vw, 58px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.74);
+  border-radius: 8px;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.72)),
+    radial-gradient(circle at 22% 24%, rgba(213, 31, 108, 0.12), transparent 30%),
+    radial-gradient(circle at 86% 18%, rgba(213, 155, 67, 0.16), transparent 30%),
+    linear-gradient(135deg, rgba(255, 248, 247, 0.94), rgba(240, 231, 215, 0.9));
+  box-shadow: 0 30px 90px rgba(21, 16, 15, 0.28);
+}
+
+.variant-modal-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(213, 31, 108, 0.035) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(213, 155, 67, 0.04) 1px, transparent 1px);
+  background-size: 58px 58px;
+}
+
+.variant-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.variant-modal-close::before,
+.variant-modal-close::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 26px;
+  height: 1.5px;
+  background: var(--ink);
+}
+
+.variant-modal-close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.variant-modal-close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.variant-modal-panel h2 {
+  max-width: 100%;
+  margin-bottom: 18px;
+  font-size: clamp(40px, 6vw, 68px);
+  line-height: 1;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.variant-modal-note {
+  max-width: 500px;
+  margin: 0 auto 34px;
+  color: var(--ink);
+  font-size: clamp(15px, 2.2vw, 22px);
+  letter-spacing: 0.12em;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.variant-modal-panel .eyebrow {
+  text-align: center;
+}
+
+.variant-modal-options {
+  width: min(430px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+}
+
+.variant-option {
+  min-height: 78px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  padding: 18px 24px;
+  box-shadow: 0 18px 34px rgba(21, 16, 15, 0.13);
+  font-size: clamp(20px, 3vw, 30px);
+  letter-spacing: 0.08em;
+  text-align: center;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.variant-option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 24px 44px rgba(21, 16, 15, 0.18);
+}
+
 .copy-link.is-copied {
   border-color: var(--accent);
   color: var(--accent);
@@ -1367,6 +1508,40 @@ h1 {
     width: 100%;
     justify-content: center;
     text-align: center;
+  }
+
+  .variant-modal {
+    padding: 12px;
+  }
+
+  .variant-modal-panel {
+    min-height: min(620px, calc(100vh - 24px));
+    padding: 54px 20px 34px;
+  }
+
+  .variant-modal-close {
+    top: 12px;
+    right: 12px;
+  }
+
+  .variant-modal-panel h2 {
+    font-size: clamp(34px, 9vw, 42px);
+    line-height: 1.04;
+  }
+
+  .variant-modal-note {
+    margin-bottom: 24px;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+  }
+
+  .variant-modal-options {
+    gap: 14px;
+  }
+
+  .variant-option {
+    min-height: 64px;
+    font-size: 20px;
   }
 
   .faq {
