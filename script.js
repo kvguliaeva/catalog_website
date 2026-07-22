@@ -8,7 +8,51 @@ const wedwed = (path) => {
 const contactUrl = "#contacts";
 const fallbackPreview = "assets/catalog/main-catalog.png";
 const unavailableMessage = "Сайт пока что находится в разработке. Я могу сделать его под ваш праздник, но посмотреть этот вариант в каталоге пока не получится. Напишите мне в личные сообщения — я вышлю видео, как он выглядит.";
-const perPage = 10;
+const perPage = 6;
+
+const cardLabels = {
+  "lilies": "Новинка",
+  "Жемчужина": "Новинка",
+  "Свадебный билет": "Популярный",
+  "Сад нежности": "Популярный",
+  "Сад огней": "Детальный дизайн",
+  "Записка": "Новинка",
+  "Тихая классика": "Бестселлер",
+  "Ботанический сад": "Популярный",
+  "Бордовая линия": "Детальный дизайн",
+  "90-е": "Необычный дизайн",
+  "В полете": "Необычный дизайн",
+  "Love Letter": "Популярный",
+  "Наша история": "Бестселлер",
+  "Оливковый сад": "Популярный",
+  "Чистая линия": "Лаконичный дизайн",
+  "Свадебный вестник": "Необычный дизайн",
+  "Тренд 2026": "Тренд 2026",
+  "Золотой юбилей": "Популярный",
+  "Noir Party": "Новинка",
+};
+
+const recommendedOrder = [
+  "lilies",
+  "Свадебный билет",
+  "Сад нежности",
+  "Жемчужина",
+  "Тихая классика",
+  "Записка",
+  "Сад огней",
+  "Ботанический сад",
+  "Love Letter",
+  "Наша история",
+  "Оливковый сад",
+  "Чистая линия",
+  "Бордовая линия",
+  "В полете",
+  "90-е",
+  "Свадебный вестник",
+  "Тренд 2026",
+  "Noir Party",
+  "Золотой юбилей",
+];
 
 const sites = [
   {
@@ -85,6 +129,7 @@ const sites = [
     "previewMobile": "assets/catalog/wedding-example5-ticket-cover.png",
     "url": "https://kvguliaeva.github.io/wedding_example5/",
     "description": "Элегантный свадебный сайт в эстетике билета и путешествия: темно-синяя палитра, календарь, тайминг, локация, дресс-код, пожелания и контакты гостей.",
+    "price": "1500 ₽",
     "tags": [
       "свадьба",
       "билет",
@@ -108,6 +153,7 @@ const sites = [
     "previewMobile": "assets/catalog/ivan-sofia-cover.png",
     "url": "https://letterwedding.github.io/wedding_ivan_sofia/",
     "description": "Нежный свадебный сайт в пастельной палитре: программа дня, дресс-код, пожелания гостям и анкета в одном красивом приглашении.",
+    "price": "1500 ₽",
     "tags": [
       "свадьба",
       "пастель",
@@ -131,6 +177,8 @@ const sites = [
     "previewMobile": "assets/catalog/wedding-example3-garden-lights-cover.png",
     "url": "https://kvguliaeva.github.io/wedding_example3/",
     "description": "Атмосферный свадебный сайт в глубокой зеленой палитре с ботаникой, огоньками и мягкой вечерней эстетикой: приглашение, локация, тайминг, дресс-код, пожелания, контакты и анкета гостей.",
+    "price": "2000 ₽",
+    "priceNote": "Стоимость выше из-за сложности реализации и декоративного оформления.",
     "tags": [
       "свадьба",
       "зелень",
@@ -154,6 +202,7 @@ const sites = [
     "previewMobile": "assets/catalog/wedding-example4-note-cover.png",
     "url": "https://kvguliaeva.github.io/wedding_example4/",
     "description": "Легкий свадебный сайт в стиле милой рукописной записки: синие акценты, скетчи, программа дня, дресс-код, таймер, пожелания, контакты и анкета гостей.",
+    "price": "1500 ₽",
     "tags": [
       "свадьба",
       "скетчи",
@@ -177,6 +226,7 @@ const sites = [
     "previewMobile": "assets/catalog/aleksandra-nikita-cover.png",
     "url": "https://letterwedding.github.io/wedding_aleksandra_nikita/",
     "description": "Сдержанный свадебный сайт в эстетике черно-белой классики: тайминг, локации, дресс-код, контакты, пожелания и анкета гостей. Есть версии в других цветах.",
+    "price": "1500 ₽",
     "tags": [
       "свадьба",
       "классика",
@@ -220,6 +270,7 @@ const sites = [
     "previewMobile": "assets/catalog/anast-serg-cover.png",
     "url": "https://letterwedding.github.io/wedding_anast_serg/",
     "description": "Светлый свадебный сайт с ботаническими деталями, мягкой зеленью, картой, программой дня, дресс-кодом и анкетой гостей. Есть версия в другом цвете.",
+    "price": "1500 ₽",
     "tags": [
       "свадьба",
       "ботаника",
@@ -257,6 +308,8 @@ const sites = [
     "previewMobile": "assets/catalog/lev-yana-cover.png",
     "url": "https://letterwedding.github.io/wedding_lev_yana/",
     "description": "Элегантный свадебный сайт с бордовыми акцентами, конвертной эстетикой и тонкими линиями от руки: тайминг, дресс-код, контакты, локация и анкета гостей.",
+    "price": "2000 ₽",
+    "priceNote": "Стоимость выше из-за сложности реализации и декоративного оформления.",
     "tags": [
       "свадьба",
       "бордо",
@@ -280,6 +333,8 @@ const sites = [
     "previewMobile": "assets/catalog/elizav-dmitr-90s-cover.png",
     "url": "https://letterwedding.github.io/wedding_elizav_dmitr/",
     "description": "Яркий свадебный сайт в стиле 90-х: кассеты, пленка, желто-красные акценты, программа дня, дресс-код, пожелания и анкета гостей в формате ностальгичной вечеринки.",
+    "price": "2000 ₽",
+    "priceNote": "Стоимость выше из-за сложности реализации и декоративного оформления.",
     "tags": [
       "свадьба",
       "ретро",
@@ -303,6 +358,8 @@ const sites = [
     "previewMobile": "assets/catalog/anna-ilya-flight-cover.png",
     "url": "https://letterwedding.github.io/wedding_anna_ilya/",
     "description": "Романтичный свадебный сайт с авиационной темой: посадочный талон, самолетики, нежные розовые акценты, тайминг, дресс-код, контакты и анкета гостей.",
+    "price": "2000 ₽",
+    "priceNote": "Стоимость выше из-за сложности реализации и декоративного оформления.",
     "tags": [
       "свадьба",
       "путешествие",
@@ -326,6 +383,7 @@ const sites = [
     "previewMobile": "assets/catalog/stefan-victoria-love-cover.png",
     "url": "https://letterwedding.github.io/wedding_stefan_victoria/",
     "description": "Романтичный свадебный сайт в розово-бордовой палитре с крупной типографикой LOVE, конвертами, локациями, таймингом, дресс-кодом и анкетой гостей.",
+    "price": "1500 ₽",
     "tags": [
       "свадьба",
       "love",
@@ -349,6 +407,7 @@ const sites = [
     "previewMobile": "assets/catalog/polina-arseniy-story-cover.png",
     "url": "https://letterwedding.github.io/wedding_polina_arseniy/",
     "description": "Лаконичный свадебный сайт с акцентом на историю пары и фотогалерею: детали дня, локация, дресс-код, таймер, подтверждение присутствия и анкета гостей.",
+    "price": "1500 ₽",
     "tags": [
       "свадьба",
       "фотоистория",
@@ -372,6 +431,7 @@ const sites = [
     "previewMobile": "assets/catalog/olga-andrey-olive-cover.png",
     "url": "https://letterwedding.github.io/wedding_olga_andrey/",
     "description": "Спокойный свадебный сайт в оливковой палитре для камерного загородного праздника: программа дня, локация с картой, дресс-код, пожелания, музыка вечера и анкета гостей.",
+    "price": "1500 ₽",
     "tags": [
       "свадьба",
       "олива",
@@ -395,6 +455,7 @@ const sites = [
     "previewMobile": "assets/catalog/kristina-konstantin-minimal-cover.png",
     "url": "https://letterwedding.github.io/wedding_kristina_konstantin/",
     "description": "Минималистичный свадебный сайт в светлой монохромной эстетике: календарь, локация, тайминг, дресс-код, пожелания, анкета гостей и аккуратный финальный экран.",
+    "price": "1500 ₽",
     "tags": [
       "свадьба",
       "минимализм",
@@ -418,6 +479,7 @@ const sites = [
     "previewMobile": "assets/catalog/olga-roman-vestnik-cover.png",
     "url": "https://letterwedding.github.io/wedding_olga_roman/",
     "description": "Свадебный сайт в стиле газетного выпуска: выразительная типографика, черно-белая верстка, место проведения, тайминг, дресс-код, пожелания и подробная анкета гостей.",
+    "price": "1500 ₽",
     "tags": [
       "свадьба",
       "газета",
@@ -441,6 +503,7 @@ const sites = [
     "previewMobile": "assets/catalog/semen-svetlana-contrast-cover.png",
     "url": "https://letterwedding.github.io/wedding_semen_svetlana/",
     "description": "Контрастный свадебный сайт в актуальной черно-белой эстетике: строгая типографика, календарь, тайминг, дресс-код, пожелания, анкета гостей и финальный экран.",
+    "price": "1500 ₽",
     "tags": [
       "свадьба",
       "тренд 2026",
@@ -464,6 +527,7 @@ const sites = [
     "previewMobile": "assets/catalog/sergey-50-birthday-cover.png",
     "url": "https://kvguliaeva.github.io/happybirthdaysergey/",
     "description": "Статусный сайт-приглашение на взрослый день рождения или юбилей: темная палитра, золотые акценты, локация, дресс-код, программа дня, пожелания и анкета гостей.",
+    "price": "1500 ₽",
     "tags": [
       "юбилей",
       "50 лет",
@@ -487,6 +551,7 @@ const sites = [
     "previewMobile": "assets/catalog/adult-birthday-noir-cover.png",
     "url": "https://kvguliaeva.github.io/happybirthdayshablon/",
     "description": "Стильный сайт-приглашение на взрослый день рождения в черно-бежевой fashion-эстетике: дата, локация, программа дня, дресс-код, пожелания, контакты и анкета гостей.",
+    "price": "1500 ₽",
     "tags": [
       "день рождения",
       "fashion",
@@ -504,6 +569,7 @@ const sites = [
 
 const state = {
   filter: "Свадебные сайты",
+  sort: "recommended",
   visibleCount: perPage,
 };
 
@@ -517,6 +583,8 @@ const moreTemplates = document.querySelector("#more-templates");
 const variantModal = document.querySelector("#variant-modal");
 const variantModalTitle = document.querySelector("#variant-modal-title");
 const variantModalOptions = document.querySelector("#variant-modal-options");
+const sortSelect = document.querySelector("#sort-select");
+const resultCount = document.querySelector("#catalog-result-count");
 
 const categories = [
   { label: "Свадьба", value: "Свадебные сайты", icon: "💍" },
@@ -546,7 +614,21 @@ function renderFilters() {
 }
 
 function getFilteredSites() {
-  return sites.filter((site) => site.category === state.filter);
+  const filtered = sites.filter((site) => site.category === state.filter);
+
+  if (state.sort === "new") {
+    return filtered.sort((a, b) => Number(cardLabels[b.title] === "Новинка") - Number(cardLabels[a.title] === "Новинка"));
+  }
+
+  if (state.sort === "price-asc") {
+    return filtered.sort((a, b) => parseInt(a.price, 10) - parseInt(b.price, 10));
+  }
+
+  if (state.sort === "price-desc") {
+    return filtered.sort((a, b) => parseInt(b.price, 10) - parseInt(a.price, 10));
+  }
+
+  return filtered.sort((a, b) => recommendedOrder.indexOf(a.title) - recommendedOrder.indexOf(b.title));
 }
 
 function renderCards() {
@@ -554,9 +636,12 @@ function renderCards() {
   const visibleSites = filteredSites.slice(0, state.visibleCount);
   grid.innerHTML = "";
   totalCount.textContent = String(sites.length).padStart(2, "0");
+  if (resultCount) {
+    resultCount.textContent = `${filteredSites.length} ${getDesignWord(filteredSites.length)}`;
+  }
   emptyState.hidden = true;
 
-  visibleSites.forEach((site) => {
+  visibleSites.forEach((site, index) => {
     const node = template.content.firstElementChild.cloneNode(true);
     const mediaLink = node.querySelector(".site-card-media");
     const desktopPreview = node.querySelector(".catalog-preview-desktop");
@@ -567,9 +652,7 @@ function renderCards() {
     const description = node.querySelector(".description");
     const priceBlock = node.querySelector(".site-price");
     const priceValue = priceBlock?.querySelector("strong");
-    const priceNote = priceBlock?.querySelector("span");
-    const tags = node.querySelector(".tags");
-    const swatches = node.querySelector(".swatches");
+    const priceNote = node.querySelector(".price-note");
     const mainLink = node.querySelector(".link-main");
     const copyButton = node.querySelector(".copy-link");
     const cardActions = node.querySelector(".card-actions");
@@ -580,11 +663,12 @@ function renderCards() {
     const mobileImage = site.coverImage || site.previewMobile || site.previewDesktop || fallbackPreview;
 
     node.classList.toggle("has-cover", hasCover);
+    node.style.setProperty("--card-index", index);
 
     mediaLink.href = isReady ? site.url : contactUrl;
     desktopPreview.style.backgroundImage = `url("${wedwed(desktopImage)}")`;
     mobilePreview.style.backgroundImage = `url("${wedwed(mobileImage)}")`;
-    badge.textContent = isReady ? site.mood : "В разработке";
+    badge.textContent = isReady ? cardLabels[site.title] || site.mood : "В разработке";
     category.textContent = site.category;
     title.textContent = site.title;
     description.textContent = site.description;
@@ -592,7 +676,8 @@ function renderCards() {
     if (site.price && priceBlock && priceValue && priceNote) {
       priceBlock.hidden = false;
       priceValue.textContent = site.price;
-      priceNote.textContent = site.priceNote || "Стоимость указана с учетом сложности реализации.";
+      priceNote.textContent = site.priceNote || "";
+      priceNote.hidden = !site.priceNote;
     }
 
     mainLink.href = isReady ? site.url : contactUrl;
@@ -608,19 +693,6 @@ function renderCards() {
       mainLink.removeAttribute("rel");
       copyButton.hidden = true;
     }
-
-    site.tags.forEach((tag) => {
-      const tagNode = document.createElement("span");
-      tagNode.textContent = tag;
-      tags.append(tagNode);
-    });
-
-    site.palette.forEach((color) => {
-      const swatch = document.createElement("span");
-      swatch.style.backgroundColor = color;
-      swatch.setAttribute("aria-hidden", "true");
-      swatches.append(swatch);
-    });
 
     if (isReady) {
       copyButton.addEventListener("click", async () => {
@@ -650,6 +722,15 @@ function renderCards() {
   });
 
   renderShowMore(filteredSites.length);
+}
+
+function getDesignWord(count) {
+  const lastTwo = count % 100;
+  const last = count % 10;
+  if (lastTwo >= 11 && lastTwo <= 14) return "дизайнов";
+  if (last === 1) return "дизайн";
+  if (last >= 2 && last <= 4) return "дизайна";
+  return "дизайнов";
 }
 
 function renderShowMore(total) {
@@ -735,6 +816,34 @@ showMoreButton?.addEventListener("click", () => {
   state.visibleCount += perPage;
   renderCards();
 });
+
+sortSelect?.addEventListener("change", (event) => {
+  state.sort = event.target.value;
+  state.visibleCount = perPage;
+  renderCards();
+});
+
+const dockLinks = Array.from(document.querySelectorAll(".mobile-dock a"));
+const dockSections = dockLinks
+  .map((link) => document.querySelector(link.getAttribute("href")))
+  .filter(Boolean);
+
+function updateDockState() {
+  const marker = window.scrollY + window.innerHeight * 0.34;
+  let activeSection = null;
+
+  dockSections.forEach((section) => {
+    if (section.offsetTop <= marker) activeSection = section;
+  });
+
+  dockLinks.forEach((link) => {
+    link.classList.toggle("is-active", activeSection && link.getAttribute("href") === `#${activeSection.id}`);
+  });
+}
+
+window.addEventListener("scroll", updateDockState, { passive: true });
+window.addEventListener("resize", updateDockState);
+updateDockState();
 
 variantModal?.addEventListener("click", (event) => {
   if (event.target.closest("[data-close-variants]")) {

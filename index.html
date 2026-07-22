@@ -30,11 +30,11 @@
 
         <section class="hero-grid" aria-label="Вступление">
           <div class="hero-copy">
-            <p class="eyebrow">Сайты-приглашения для важных событий</p>
-            <h1>Сайт, который гости откроют с удовольствием</h1>
+            <p class="eyebrow">Winx Wedding · digital invitations</p>
+            <h1>Ваш праздник начинается со ссылки</h1>
             <p class="hero-text">
-              Вместо обычной открытки — красивая страница с программой, адресами, фото,
-              анкетой гостя и ссылкой, которую удобно отправить в чат.
+              Создаю сайты-приглашения, которые знакомят гостей с атмосферой события
+              ещё до его начала.
             </p>
             <div class="hero-points" aria-label="Преимущества">
               <span>под вашу дату и стиль</span>
@@ -61,8 +61,8 @@
             <span>карточки в каталоге</span>
           </div>
           <div>
-            <strong>от 1500 ₽</strong>
-            <span>стоимость сайта из каталога</span>
+            <strong>1500 ₽</strong>
+            <span>начальная стоимость сайта</span>
           </div>
           <div>
             <strong>1–2 дня</strong>
@@ -73,12 +73,24 @@
         <section class="toolbar" id="catalog" aria-label="Управление каталогом">
           <div>
             <p class="eyebrow">Каталог и цены</p>
-            <h2>Выберите формат вашего сайта</h2>
-            <p class="catalog-price-note">Большинство шаблонов из каталога — 1500 ₽</p>
+            <h2>Найдите свой дизайн</h2>
+            <p class="toolbar-copy">Сначала выберите событие, затем отсортируйте варианты по настроению или стоимости.</p>
           </div>
 
           <div class="controls">
             <div class="filters category-tabs" id="filters" aria-label="Фильтры"></div>
+            <div class="catalog-sort-row">
+              <p id="catalog-result-count">0 дизайнов</p>
+              <label class="sort-control">
+                <span>Показывать</span>
+                <select id="sort-select" aria-label="Сортировка каталога">
+                  <option value="recommended">Рекомендуемые</option>
+                  <option value="new">Сначала новинки</option>
+                  <option value="price-asc">Сначала дешевле</option>
+                  <option value="price-desc">Сначала дороже</option>
+                </select>
+              </label>
+            </div>
           </div>
         </section>
 
@@ -164,7 +176,7 @@
           <div class="faq-list">
             <details open>
               <summary>Сколько стоит сайт из каталога?</summary>
-              <p>Большинство сайтов из каталога стоят 1500 ₽. Шаблоны повышенной сложности стоят 2500 ₽ — это связано с более сложной реализацией и большим количеством декоративных деталей. В стоимость входит адаптация выбранного шаблона под вашу дату, имена, тексты, фото и детали события.</p>
+              <p>Цена указана отдельно в каждой карточке и зависит от сложности выбранного дизайна. В стоимость входит адаптация шаблона под вашу дату, имена, тексты, фото и детали события.</p>
             </details>
             <details>
               <summary>Как проходит оплата?</summary>
@@ -247,18 +259,13 @@
               <p class="category"></p>
               <h3></h3>
             </div>
-            <div class="design-options">
-              <p>Варианты дизайна</p>
-              <div class="swatches"></div>
+            <div class="site-price" hidden>
+              <strong></strong>
             </div>
           </div>
           <p class="description"></p>
-          <div class="site-price" hidden>
-            <strong></strong>
-            <span></span>
-          </div>
+          <p class="price-note" hidden></p>
           <p class="dev-note"></p>
-          <div class="tags"></div>
           <div class="card-actions">
             <a class="link-main" target="_blank" rel="noreferrer">Открыть сайт</a>
             <button type="button" class="copy-link">Скопировать ссылку</button>
@@ -277,6 +284,13 @@
         <div class="variant-modal-options" id="variant-modal-options"></div>
       </section>
     </div>
+
+    <nav class="mobile-dock" aria-label="Быстрая навигация">
+      <a href="#catalog"><span>01</span>Каталог</a>
+      <a href="#steps"><span>02</span>Заказ</a>
+      <a href="#faq"><span>03</span>FAQ</a>
+      <a href="#contacts"><span>04</span>Контакты</a>
+    </nav>
 
     <script src="script.js"></script>
   </body>
