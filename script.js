@@ -20,6 +20,20 @@ const sites = [
     "previewDesktop": "assets/catalog/wedding-example6-lilies-cover.png",
     "previewMobile": "assets/catalog/wedding-example6-lilies-cover.png",
     "url": "https://kvguliaeva.github.io/lilies2/",
+    "variants": [
+      {
+        "name": "Розовый",
+        "url": "https://kvguliaeva.github.io/lilies2/",
+        "color": "#eaa0b8",
+        "textColor": "#7a3950"
+      },
+      {
+        "name": "Оранжевый",
+        "url": "https://kvguliaeva.github.io/wedding_artem_ksenia5/",
+        "color": "#f0a45d",
+        "textColor": "#5d3212"
+      }
+    ],
     "description": "Нежный свадебный сайт с лилиями, розовой каллиграфией и мягкой акварельной зеленью: приглашение, программа дня, дресс-код, локация, пожелания, FAQ и анкета гостей.",
     "price": "2500 ₽",
     "priceNote": "Стоимость выше из-за повышенной сложности реализации и большого количества декоративных деталей.",
