@@ -19,8 +19,10 @@ const sites = [
     "coverImage": "assets/catalog/wedding-example6-lilies-cover.png",
     "previewDesktop": "assets/catalog/wedding-example6-lilies-cover.png",
     "previewMobile": "assets/catalog/wedding-example6-lilies-cover.png",
-    "url": "https://kvguliaeva.github.io/wedding_example6/",
+    "url": "https://kvguliaeva.github.io/lilies2/",
     "description": "Нежный свадебный сайт с лилиями, розовой каллиграфией и мягкой акварельной зеленью: приглашение, программа дня, дресс-код, локация, пожелания, FAQ и анкета гостей.",
+    "price": "2500 ₽",
+    "priceNote": "Стоимость выше из-за повышенной сложности реализации и большого количества декоративных деталей.",
     "tags": [
       "свадьба",
       "лилии",
@@ -44,6 +46,8 @@ const sites = [
     "previewMobile": "assets/catalog/wedding-2-pearl-cover.png",
     "url": "https://kvguliaeva.github.io/wedding_2/",
     "description": "Изысканный свадебный сайт в жемчужно-молочной эстетике: нежные ленты, перламутровые детали, расписание дня, локация, дресс-код, пожелания и анкета гостей.",
+    "price": "2500 ₽",
+    "priceNote": "Стоимость выше из-за повышенной сложности реализации и большого количества декоративных деталей.",
     "tags": [
       "свадьба",
       "жемчуг",
@@ -547,6 +551,9 @@ function renderCards() {
     const category = node.querySelector(".category");
     const title = node.querySelector("h3");
     const description = node.querySelector(".description");
+    const priceBlock = node.querySelector(".site-price");
+    const priceValue = priceBlock?.querySelector("strong");
+    const priceNote = priceBlock?.querySelector("span");
     const tags = node.querySelector(".tags");
     const swatches = node.querySelector(".swatches");
     const mainLink = node.querySelector(".link-main");
@@ -567,6 +574,13 @@ function renderCards() {
     category.textContent = site.category;
     title.textContent = site.title;
     description.textContent = site.description;
+
+    if (site.price && priceBlock && priceValue && priceNote) {
+      priceBlock.hidden = false;
+      priceValue.textContent = site.price;
+      priceNote.textContent = site.priceNote || "Стоимость указана с учетом сложности реализации.";
+    }
+
     mainLink.href = isReady ? site.url : contactUrl;
     mainLink.textContent = isReady ? "Открыть сайт" : "Запросить видео";
     copyButton.textContent = isReady ? "Скопировать ссылку" : "Написать мне";
