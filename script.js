@@ -16,6 +16,7 @@ const cardLabels = {
   "Свадебный билет": "Популярный",
   "Сад нежности": "Популярный",
   "Сад огней": "Детальный дизайн",
+  "letter": "Новинка",
   "Записка": "Новинка",
   "Тихая классика": "Бестселлер",
   "Ботанический сад": "Популярный",
@@ -40,6 +41,7 @@ const recommendedOrder = [
   "Сад нежности",
   "Жемчужина",
   "Сад огней",
+  "letter",
   "В полете",
   "Тихая классика",
   "Записка",
@@ -194,6 +196,31 @@ const sites = [
       "#d7c7aa",
       "#ffffff",
       "#111111"
+    ]
+  },
+  {
+    "title": "letter",
+    "category": "Свадебные сайты",
+    "format": "Свадьба",
+    "mood": "Готовый шаблон",
+    "coverImage": "assets/catalog/letter-olive-cover.png",
+    "previewDesktop": "assets/catalog/letter-olive-cover.png",
+    "previewMobile": "assets/catalog/letter-olive-cover.png",
+    "url": "https://kvguliaeva.github.io/letter2/",
+    "description": "Стильный свадебный сайт в эстетике личного письма: оливковые акценты, выразительная типографика, место проведения, программа дня, дресс-код, пожелания, фотогалерея и анкета гостей.",
+    "price": "2000 ₽",
+    "priceNote": "Стоимость выше из-за детального оформления и большого количества декоративных элементов.",
+    "tags": [
+      "свадьба",
+      "письмо",
+      "готовый сайт"
+    ],
+    "palette": [
+      "#ffffff",
+      "#879874",
+      "#66745a",
+      "#d9d2c4",
+      "#171717"
     ]
   },
   {
@@ -631,7 +658,6 @@ const filters = document.querySelector("#filters");
 const totalCount = document.querySelector("#total-count");
 const template = document.querySelector("#site-card-template");
 const showMoreButton = document.querySelector("#show-more");
-const moreTemplates = document.querySelector("#more-templates");
 const variantModal = document.querySelector("#variant-modal");
 const variantModalTitle = document.querySelector("#variant-modal-title");
 const variantModalOptions = document.querySelector("#variant-modal-options");
@@ -689,7 +715,8 @@ function renderCards() {
   grid.innerHTML = "";
   totalCount.textContent = String(sites.length).padStart(2, "0");
   if (resultCount) {
-    resultCount.textContent = `${filteredSites.length} ${getDesignWord(filteredSites.length)}`;
+    const activeCategory = categories.find((category) => category.value === state.filter);
+    resultCount.textContent = `${activeCategory?.label || "Каталог"} · ${filteredSites.length} ${getDesignWord(filteredSites.length)}`;
   }
   emptyState.hidden = true;
 
@@ -790,9 +817,6 @@ function renderShowMore(total) {
   const hasMore = state.visibleCount < total;
   showMoreButton.hidden = !hasMore;
   showMoreButton.textContent = hasMore ? `Показать еще ${Math.min(perPage, total - state.visibleCount)}` : "";
-  if (moreTemplates) {
-    moreTemplates.hidden = hasMore;
-  }
 }
 
 function getVariants(site) {
