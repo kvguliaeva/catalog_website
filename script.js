@@ -28,6 +28,8 @@ const cardLabels = {
   "Чистая линия": "Лаконичный дизайн",
   "Свадебный вестник": "Необычный дизайн",
   "Тренд 2026": "Тренд 2026",
+  "Любовь навсегда": "Новинка",
+  "Золотая ботаника": "Новинка",
   "Золотой юбилей": "Популярный",
   "Noir Party": "Новинка",
 };
@@ -50,6 +52,8 @@ const recommendedOrder = [
   "90-е",
   "Свадебный вестник",
   "Тренд 2026",
+  "Любовь навсегда",
+  "Золотая ботаника",
   "Noir Party",
   "Золотой юбилей",
 ];
@@ -515,6 +519,54 @@ const sites = [
       "#e8e1d6",
       "#d0c2b0",
       "#2f6b4f"
+    ]
+  },
+  {
+    "title": "Любовь навсегда",
+    "category": "Свадебные сайты",
+    "format": "Свадьба",
+    "mood": "Готовый шаблон",
+    "coverImage": "assets/catalog/aleksandr-lika-forever-cover.png",
+    "previewDesktop": "assets/catalog/aleksandr-lika-forever-cover.png",
+    "previewMobile": "assets/catalog/aleksandr-lika-forever-cover.png",
+    "url": "https://letterwedding.github.io/wedding_aleksandr_lika/",
+    "description": "Минималистичный свадебный сайт в черно-белой эстетике: выразительная типографика, таймер, программа дня, локации, дресс-код и подробная анкета гостей.",
+    "price": "1500 ₽",
+    "tags": [
+      "свадьба",
+      "минимализм",
+      "готовый сайт"
+    ],
+    "palette": [
+      "#ffffff",
+      "#111111",
+      "#d8cec3",
+      "#a88372",
+      "#f5f1eb"
+    ]
+  },
+  {
+    "title": "Золотая ботаника",
+    "category": "Свадебные сайты",
+    "format": "Свадьба",
+    "mood": "Готовый шаблон",
+    "coverImage": "assets/catalog/dmitriy-anastasia-golden-botanical-cover.png",
+    "previewDesktop": "assets/catalog/dmitriy-anastasia-golden-botanical-cover.png",
+    "previewMobile": "assets/catalog/dmitriy-anastasia-golden-botanical-cover.png",
+    "url": "https://letterwedding.github.io/wedding_dmitriy_anastasia/",
+    "description": "Нежный свадебный сайт с цветочной ботаникой и тонкими золотыми линиями: таймер, расписание, локации, карта, дресс-код и подробная анкета гостей.",
+    "price": "1500 ₽",
+    "tags": [
+      "свадьба",
+      "ботаника",
+      "готовый сайт"
+    ],
+    "palette": [
+      "#fffdf8",
+      "#d8c2a4",
+      "#93a98e",
+      "#f1d9d6",
+      "#6b513f"
     ]
   },
   {
