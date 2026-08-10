@@ -1084,19 +1084,19 @@ button.variant-link {
 .footer {
   margin-bottom: 24px;
   padding: clamp(28px, 5vw, 56px);
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  gap: clamp(28px, 4vw, 56px);
   border: 1px solid var(--line);
   background: var(--ink);
   color: #fff;
 }
 
 .contact-actions {
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 230px));
-  justify-content: flex-end;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -1137,8 +1137,8 @@ button.variant-link {
 .contact-value {
   grid-area: value;
   min-width: 0;
-  overflow-wrap: anywhere;
-  font-size: 15px;
+  white-space: nowrap;
+  font-size: clamp(13px, 1vw, 15px);
 }
 
 .app-icon {
@@ -1183,6 +1183,10 @@ button.variant-link {
 
 .footer > div {
   min-width: 0;
+}
+
+.footer > div:first-child {
+  max-width: 820px;
 }
 
 .footer .eyebrow {
@@ -1231,6 +1235,10 @@ button.variant-link {
   .footer {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
   }
 
   .nav {
