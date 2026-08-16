@@ -2319,6 +2319,49 @@ h1 {
   }
 }
 
+.mobile-view-note {
+  position: relative;
+  max-width: 620px;
+  margin: 0 0 22px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  border-left: 3px solid var(--accent);
+  padding: 13px 16px;
+  background: rgba(255, 255, 255, 0.68);
+  color: #6d3d43;
+  box-shadow: 0 12px 34px rgba(106, 40, 61, 0.07);
+  backdrop-filter: blur(10px);
+}
+
+.mobile-view-note strong {
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.mobile-view-note span {
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+@media (max-width: 720px) {
+  .mobile-view-note {
+    margin-bottom: 18px;
+    grid-template-columns: 1fr;
+    gap: 5px;
+    padding: 11px 13px;
+  }
+
+  .mobile-view-note span {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .site-card {
     animation: none;
