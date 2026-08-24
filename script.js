@@ -8,7 +8,8 @@ const wedwed = (path) => {
 const contactUrl = "#contacts";
 const fallbackPreview = "assets/catalog/main-catalog.png";
 const unavailableMessage = "Сайт пока что находится в разработке. Я могу сделать его под ваш праздник, но посмотреть этот вариант в каталоге пока не получится. Напишите мне в личные сообщения — я вышлю видео, как он выглядит.";
-const perPage = 6;
+const loadMoreCount = 6;
+const getInitialVisibleCount = () => window.matchMedia("(max-width: 720px)").matches ? 7 : 6;
 
 const cardLabels = {
   "lilies": "Новинка",
@@ -727,7 +728,7 @@ const sites = [
 const state = {
   filter: "Свадебные сайты",
   sort: "recommended",
-  visibleCount: perPage,
+  visibleCount: getInitialVisibleCount(),
 };
 
 const grid = document.querySelector("#catalog-grid");
@@ -761,7 +762,7 @@ function renderFilters() {
     button.classList.toggle("is-active", category.value === state.filter);
     button.addEventListener("click", () => {
       state.filter = category.value;
-      state.visibleCount = perPage;
+      state.visibleCount = getInitialVisibleCount();
       renderFilters();
       renderCards();
     });
@@ -787,10 +788,13 @@ function getFilteredSites() {
   return filtered.sort((a, b) => recommendedOrder.indexOf(a.title) - recommendedOrder.indexOf(b.title));
 }
 
-function renderCards() {
+function renderCards({ append = false } = {}) {
   const filteredSites = getFilteredSites();
-  const visibleSites = filteredSites.slice(0, state.visibleCount);
-  grid.innerHTML = "";
+  const renderedCount = append ? grid.childElementCount : 0;
+  const visibleSites = filteredSites.slice(renderedCount, state.visibleCount);
+  const fragment = document.createDocumentFragment();
+
+  if (!append) grid.innerHTML = "";
   totalCount.textContent = String(sites.length).padStart(2, "0");
   if (resultCount) {
     const activeCategory = categories.find((category) => category.value === state.filter);
@@ -875,8 +879,10 @@ function renderCards() {
       cardActions.append(variantButton);
     }
 
-    grid.append(node);
+    fragment.append(node);
   });
+
+  grid.append(fragment);
 
   renderShowMore(filteredSites.length);
 }
@@ -894,7 +900,7 @@ function renderShowMore(total) {
   if (!showMoreButton) return;
   const hasMore = state.visibleCount < total;
   showMoreButton.hidden = !hasMore;
-  showMoreButton.textContent = hasMore ? `Показать еще ${Math.min(perPage, total - state.visibleCount)}` : "";
+  showMoreButton.textContent = hasMore ? `Показать еще ${Math.min(loadMoreCount, total - state.visibleCount)}` : "";
 }
 
 function getVariants(site) {
@@ -967,13 +973,13 @@ async function copyText(text) {
 }
 
 showMoreButton?.addEventListener("click", () => {
-  state.visibleCount += perPage;
-  renderCards();
+  state.visibleCount += loadMoreCount;
+  renderCards({ append: true });
 });
 
 sortSelect?.addEventListener("change", (event) => {
   state.sort = event.target.value;
-  state.visibleCount = perPage;
+  state.visibleCount = getInitialVisibleCount();
   renderCards();
 });
 
