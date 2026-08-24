@@ -16,6 +16,7 @@ const cardLabels = {
   "Свадебный билет": "Популярный",
   "Сад нежности": "Популярный",
   "Сад огней": "Детальный дизайн",
+  "Море": "Новинка",
   "letter": "Новинка",
   "Записка": "Новинка",
   "Тихая классика": "Бестселлер",
@@ -42,6 +43,7 @@ const recommendedOrder = [
   "Сад нежности",
   "Жемчужина",
   "Сад огней",
+  "Море",
   "letter",
   "В полете",
   "Тихая классика",
@@ -198,6 +200,30 @@ const sites = [
       "#d7c7aa",
       "#ffffff",
       "#111111"
+    ]
+  },
+  {
+    "title": "Море",
+    "category": "Свадебные сайты",
+    "format": "Свадьба",
+    "mood": "Готовый шаблон",
+    "coverImage": "assets/catalog/sea-wedding-cover.jpg",
+    "previewDesktop": "assets/catalog/sea-wedding-cover.jpg",
+    "previewMobile": "assets/catalog/sea-wedding-cover.jpg",
+    "url": "https://kvguliaeva.github.io/examlpe/",
+    "description": "Воздушный свадебный сайт в жемчужно-голубой эстетике: кружево, морские детали, тайминг, локация, дресс-код, контакты, анкета гостей и финальный экран.",
+    "price": "2000 ₽",
+    "tags": [
+      "свадьба",
+      "море",
+      "готовый сайт"
+    ],
+    "palette": [
+      "#f8f4eb",
+      "#b9d1ef",
+      "#8eafd8",
+      "#d7c7ad",
+      "#ffffff"
     ]
   },
   {
