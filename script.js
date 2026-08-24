@@ -17,6 +17,7 @@ const cardLabels = {
   "Сад нежности": "Популярный",
   "Сад огней": "Детальный дизайн",
   "Море": "Новинка",
+  "Бархатный сентябрь": "Новинка",
   "letter": "Новинка",
   "Записка": "Новинка",
   "Тихая классика": "Бестселлер",
@@ -42,6 +43,7 @@ const recommendedOrder = [
   "Свадебный билет",
   "Сад нежности",
   "Жемчужина",
+  "Бархатный сентябрь",
   "Сад огней",
   "Море",
   "letter",
@@ -224,6 +226,30 @@ const sites = [
       "#8eafd8",
       "#d7c7ad",
       "#ffffff"
+    ]
+  },
+  {
+    "title": "Бархатный сентябрь",
+    "category": "Свадебные сайты",
+    "format": "Свадьба",
+    "mood": "Готовый шаблон",
+    "coverImage": "assets/catalog/velvet-september-cover.jpg",
+    "previewDesktop": "assets/catalog/velvet-september-cover.jpg",
+    "previewMobile": "assets/catalog/velvet-september-cover.jpg",
+    "url": "https://kvguliaeva.github.io/wedding_aleksandr_milena/",
+    "description": "Тёплый свадебный сайт в эстетике бархатного сентября: шоколадные оттенки, выразительная каллиграфия, локация, тайминг, дресс-код, пожелания, контакты и анкета гостей.",
+    "price": "1500 ₽",
+    "tags": [
+      "свадьба",
+      "осень",
+      "готовый сайт"
+    ],
+    "palette": [
+      "#ffffff",
+      "#f0e6dc",
+      "#bfa491",
+      "#6b3b2c",
+      "#40251f"
     ]
   },
   {
