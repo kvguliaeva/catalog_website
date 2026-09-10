@@ -588,12 +588,26 @@ const sites = [
     "previewDesktop": "assets/catalog/semen-svetlana-contrast-cover.png",
     "previewMobile": "assets/catalog/semen-svetlana-contrast-cover.png",
     "url": "https://letterwedding.github.io/wedding_semen_svetlana/",
-    "description": "Контрастный свадебный сайт в актуальной черно-белой эстетике: строгая типографика, календарь, тайминг, дресс-код, пожелания, анкета гостей и финальный экран.",
+    "variants": [
+      {
+        "name": "Классический",
+        "url": "https://letterwedding.github.io/wedding_semen_svetlana/",
+        "color": "#111111",
+        "textColor": "#ffffff"
+      },
+      {
+        "name": "Красный",
+        "url": "https://letterwedding.github.io/wedding_polina_nikita/",
+        "color": "#a51f2d",
+        "textColor": "#ffffff"
+      }
+    ],
+    "description": "Контрастный свадебный сайт в актуальной эстетике: строгая типографика, календарь, тайминг, дресс-код, пожелания, анкета гостей и финальный экран. Доступен в классическом и красном цветах.",
     "price": "1500 ₽",
     "tags": [
       "свадьба",
       "тренд 2026",
-      "готовый сайт"
+      "2 цветовые версии"
     ],
     "palette": [
       "#ffffff",
