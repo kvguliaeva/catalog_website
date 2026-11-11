@@ -9,10 +9,14 @@ const contactUrl = "#contacts";
 const fallbackPreview = "assets/catalog/main-catalog.png";
 const unavailableMessage = "Сайт пока что находится в разработке. Я могу сделать его под ваш праздник, но посмотреть этот вариант в каталоге пока не получится. Напишите мне в личные сообщения — я вышлю видео, как он выглядит.";
 const loadMoreCount = 6;
-const getInitialVisibleCount = () => window.matchMedia("(max-width: 720px)").matches ? 7 : 6;
+const getInitialVisibleCount = () => 6;
 
 const cardLabels = {
-  "lilies": "Новинка",
+  "love is": "Новинка",
+  "Зимняя сказка": "Новинка",
+  "Дело в любви": "Новинка",
+  "Лимонное настроение": "Новинка",
+  "lilies": "Бестселлер",
   "Жемчужина": "Новинка",
   "Свадебный билет": "Популярный",
   "Сад нежности": "Популярный",
@@ -35,25 +39,30 @@ const cardLabels = {
   "Шелк": "Новинка",
   "Любовь навсегда": "Новинка",
   "Золотая ботаника": "Новинка",
+  "Легкость": "Новинка",
   "Золотой юбилей": "Популярный",
   "Noir Party": "Новинка",
 };
 
 const recommendedOrder = [
   "lilies",
+  "Зимняя сказка",
+  "Дело в любви",
+  "Лимонное настроение",
   "Свадебный билет",
+  "Море",
+  "Тихая классика",
+  "love is",
+  "Сад огней",
+  "Наша история",
   "Сад нежности",
+  "Ботанический сад",
   "Жемчужина",
   "Бархатный сентябрь",
-  "Сад огней",
-  "Море",
   "letter",
   "В полете",
-  "Тихая классика",
   "Записка",
-  "Ботанический сад",
   "Love Letter",
-  "Наша история",
   "Оливковый сад",
   "Чистая линия",
   "Бордовая линия",
@@ -63,11 +72,60 @@ const recommendedOrder = [
   "Шелк",
   "Любовь навсегда",
   "Золотая ботаника",
+  "Легкость",
   "Noir Party",
-  "Золотой юбилей",
+  "Золотой юбилей"
 ];
 
 const sites = [
+  {
+    "title": "love is",
+    "category": "Свадебные сайты",
+    "format": "Свадьба",
+    "mood": "Готовый шаблон",
+    "coverImage": "assets/catalog/love-is-cover.jpg",
+    "previewDesktop": "assets/catalog/love-is-cover.jpg",
+    "previewMobile": "assets/catalog/love-is-cover.jpg",
+    "url": "https://kvguliaeva.github.io/wedding_example9/",
+    "description": "Современное свадебное приглашение с эмоциональной красной типографикой, полароидными фотографиями, таймингом, дресс-кодом, пожеланиями и анкетой гостей.",
+    "price": "2000 ₽",
+    "tags": [
+      "свадьба",
+      "красный",
+      "готовый сайт"
+    ],
+    "palette": [
+      "#fff8ec",
+      "#d51016",
+      "#181310",
+      "#c89d86",
+      "#ffffff"
+    ]
+  },
+  {
+    "title": "Лимонное настроение",
+    "category": "Свадебные сайты",
+    "format": "Свадьба",
+    "mood": "Готовый шаблон",
+    "coverImage": "assets/catalog/lemon-mood-cover.jpg",
+    "previewDesktop": "assets/catalog/lemon-mood-cover.jpg",
+    "previewMobile": "assets/catalog/lemon-mood-cover.jpg",
+    "url": "https://kvguliaeva.github.io/wedding_lemon/",
+    "description": "Солнечный свадебный сайт в средиземноморской эстетике: лимоны, синяя керамика, цветочные детали, тайминг, локация, дресс-код, анкета гостей и контакты.",
+    "price": "2000 ₽",
+    "tags": [
+      "свадьба",
+      "средиземноморье",
+      "готовый сайт"
+    ],
+    "palette": [
+      "#f7edc9",
+      "#f2c530",
+      "#2854a1",
+      "#6d7b45",
+      "#ffffff"
+    ]
+  },
   {
     "title": "lilies",
     "category": "Свадебные сайты",
@@ -91,7 +149,7 @@ const sites = [
         "textColor": "#5d3212"
       }
     ],
-    "description": "Нежный свадебный сайт с лилиями, розовой каллиграфией и мягкой акварельной зеленью: приглашение, программа дня, дресс-код, локация, пожелания, FAQ и анкета гостей.",
+    "description": "Нежный свадебный сайт с лилиями, розовой каллиграфией и мягкой акварельной зеленью: приглашение, программа дня, дресс-код, локация, пожелания, ответы на вопросы и анкета гостей.",
     "price": "2500 ₽",
     "priceNote": "Стоимость выше из-за повышенной сложности реализации и большого количества декоративных деталей.",
     "tags": [
@@ -690,6 +748,42 @@ const sites = [
     ]
   },
   {
+    "title": "Зимняя сказка",
+    "category": "Свадебные сайты",
+    "format": "Свадьба",
+    "mood": "Готовый шаблон",
+    "coverImage": "assets/catalog/winter-fairytale-cover.jpg",
+    "url": "https://kvguliaeva.github.io/zima/",
+    "description": "Сайт-приглашение на зимнюю свадьбу в светлых сиреневых тонах.",
+    "price": "2000 ₽",
+    "tags": ["свадьба", "зима", "сиреневый", "готовый сайт"],
+    "palette": ["#f7f4f9", "#ded5eb", "#a397cb", "#555172"]
+  },
+  {
+    "title": "Дело в любви",
+    "category": "Свадебные сайты",
+    "format": "Свадьба",
+    "mood": "Готовый шаблон",
+    "coverImage": "assets/catalog/delo-v-lyubvi-cover.jpg",
+    "url": "https://kvguliaeva.github.io/delo/",
+    "description": "Свадебное приглашение в стиле досье: тёплые бумажные фактуры, печатная типографика и фотокарточки.",
+    "price": "2000 ₽",
+    "tags": ["свадьба", "досье", "ретро", "готовый сайт"],
+    "palette": ["#f3ede0", "#d1ad8d", "#dfbb51", "#413b34"]
+  },
+  {
+    "title": "Легкость",
+    "category": "Взрослый день рождения",
+    "format": "День рождения",
+    "mood": "Готовый шаблон",
+    "coverImage": "assets/catalog/birthday-lightness-cover.jpg",
+    "url": "https://birthday-invitation.github.io/happybirthdayinna/",
+    "description": "Сайт-приглашение на день рождения в нежных пудровых тонах.",
+    "price": "1500 ₽",
+    "tags": ["день рождения", "пудровый", "готовый сайт"],
+    "palette": ["#f8f0e8", "#ecd0ca", "#d6b4aa", "#5e423b"]
+  },
+  {
     "title": "Золотой юбилей",
     "category": "Взрослый день рождения",
     "format": "Юбилей",
@@ -756,12 +850,15 @@ const variantModalTitle = document.querySelector("#variant-modal-title");
 const variantModalOptions = document.querySelector("#variant-modal-options");
 const sortSelect = document.querySelector("#sort-select");
 const resultCount = document.querySelector("#catalog-result-count");
+const variantPanel = variantModal?.querySelector(".variant-modal-panel");
+let variantOpener = null;
+let modalBackground = [];
 
 const categories = [
-  { label: "Свадьба", value: "Свадебные сайты", icon: "💍" },
-  { label: "Детский ДР", value: "Детский день рождения", icon: "🎈" },
-  { label: "Взрослый ДР", value: "Взрослый день рождения", icon: "🎂" },
-  { label: "Другие", value: "Другие праздники", icon: "🎁" },
+  { label: "Свадьба", value: "Свадебные сайты", icon: "01" },
+  { label: "Детский праздник", value: "Детский день рождения", icon: "02" },
+  { label: "День рождения", value: "Взрослый день рождения", icon: "03" },
+  { label: "Другие события", value: "Другие праздники", icon: "04" },
 ];
 
 function renderFilters() {
@@ -774,10 +871,16 @@ function renderFilters() {
     button.innerHTML = `<span>${category.icon}</span>${category.label}`;
     button.dataset.category = category.value;
     button.classList.toggle("is-active", category.value === state.filter);
+    button.setAttribute("aria-pressed", String(category.value === state.filter));
+    button.setAttribute("aria-controls", "catalog-grid");
     button.addEventListener("click", () => {
       state.filter = category.value;
       state.visibleCount = getInitialVisibleCount();
-      renderFilters();
+      filters.querySelectorAll("button").forEach((filter) => {
+        const active = filter.dataset.category === state.filter;
+        filter.classList.toggle("is-active", active);
+        filter.setAttribute("aria-pressed", String(active));
+      });
       renderCards();
     });
     filters.append(button);
@@ -788,18 +891,134 @@ function getFilteredSites() {
   const filtered = sites.filter((site) => site.category === state.filter);
 
   if (state.sort === "new") {
-    return filtered.sort((a, b) => Number(cardLabels[b.title] === "Новинка") - Number(cardLabels[a.title] === "Новинка"));
+    return filtered.sort((a, b) => Number(getBadgeLabel(b) === "Новинка") - Number(getBadgeLabel(a) === "Новинка") || getRecommendedIndex(a) - getRecommendedIndex(b));
   }
 
   if (state.sort === "price-asc") {
-    return filtered.sort((a, b) => parseInt(a.price, 10) - parseInt(b.price, 10));
+    return filtered.sort((a, b) => parsePrice(a.price) - parsePrice(b.price));
   }
 
   if (state.sort === "price-desc") {
-    return filtered.sort((a, b) => parseInt(b.price, 10) - parseInt(a.price, 10));
+    return filtered.sort((a, b) => parsePrice(b.price) - parsePrice(a.price));
   }
 
-  return filtered.sort((a, b) => recommendedOrder.indexOf(a.title) - recommendedOrder.indexOf(b.title));
+  return filtered.sort((a, b) => getRecommendedIndex(a) - getRecommendedIndex(b));
+}
+
+function getBadgeLabel(site) {
+  const label = cardLabels[site.title];
+  if (label === "Бестселлер" || label === "Популярный" || label === "Новинка") return label;
+  return "";
+}
+
+function getRecommendedIndex(site) {
+  const index = recommendedOrder.indexOf(site.title);
+  return index === -1 ? Number.MAX_SAFE_INTEGER : index;
+}
+
+function parsePrice(price = "") {
+  return Number(String(price).replace(/\D/g, "")) || 0;
+}
+
+function formatPrice(price = "") {
+  const value = parsePrice(price);
+  if (!value) return price;
+  const prefix = /^\s*от\b/i.test(price) ? "от " : "";
+  return `${prefix}${new Intl.NumberFormat("ru-RU").format(value).replace(/\u00a0/g, " ")} ₽`;
+}
+
+function createSiteCard(site, index) {
+  const node = template.content.firstElementChild.cloneNode(true);
+  const mediaLink = node.querySelector(".site-card-media");
+  const desktopPreview = node.querySelector(".catalog-preview-desktop");
+  const mobilePreview = node.querySelector(".catalog-preview-mobile");
+  const badge = node.querySelector(".badge");
+  const titleLink = node.querySelector(".site-title-link");
+  const title = node.querySelector("h3");
+  const priceBlock = node.querySelector(".site-price");
+  const priceValue = priceBlock?.querySelector("strong");
+  const mainLink = node.querySelector(".link-main");
+  const cardActions = node.querySelector(".card-actions");
+  const devNote = node.querySelector(".dev-note");
+  const isReady = Boolean(site.url);
+  const actionLabel = isReady ? "Посмотреть вживую" : "Запросить видео";
+  const actionDescription = `${actionLabel}: ${site.title}${isReady ? " (новая вкладка)" : ""}`;
+  const hasCover = Boolean(site.coverImage);
+  const desktopImage = site.coverImage || site.previewDesktop || fallbackPreview;
+  const mobileImage = site.coverImage || site.previewMobile || site.previewDesktop || fallbackPreview;
+  const badgeLabel = isReady ? getBadgeLabel(site) : "В разработке";
+
+  node.classList.toggle("has-cover", hasCover);
+  node.style.setProperty("--card-index", index);
+
+  mediaLink.href = isReady ? site.url : contactUrl;
+  mediaLink.setAttribute("aria-label", actionDescription);
+  desktopPreview.style.backgroundImage = `url("${wedwed(desktopImage)}")`;
+  mobilePreview.style.backgroundImage = `url("${wedwed(mobileImage)}")`;
+  badge.textContent = badgeLabel;
+  badge.hidden = !badgeLabel;
+  titleLink.href = isReady ? site.url : contactUrl;
+  title.textContent = site.title;
+
+  if (site.price && priceBlock && priceValue) {
+    priceBlock.hidden = false;
+    priceValue.textContent = formatPrice(site.price);
+  }
+
+  mainLink.href = isReady ? site.url : contactUrl;
+  mainLink.textContent = actionLabel;
+  mainLink.setAttribute("aria-label", actionDescription);
+  if (isReady) titleLink.setAttribute("aria-label", `${site.title} — демо в новой вкладке`);
+  devNote.textContent = isReady ? "" : unavailableMessage;
+
+  if (!isReady) {
+    node.classList.add("is-unavailable");
+    mediaLink.removeAttribute("target");
+    mediaLink.removeAttribute("rel");
+    mainLink.removeAttribute("target");
+    mainLink.removeAttribute("rel");
+    titleLink.removeAttribute("target");
+    titleLink.removeAttribute("rel");
+  }
+
+  const variants = getVariants(site);
+
+  if (variants.length > 1) {
+    const variantButton = document.createElement("button");
+    const label = document.createElement("span");
+    const swatches = document.createElement("span");
+
+    variantButton.type = "button";
+    variantButton.className = "variant-link";
+    variantButton.setAttribute("aria-label", `Выбрать цвет: ${site.title}, ${variants.length} ${getColorWord(variants.length)}`);
+    variantButton.setAttribute("aria-haspopup", "dialog");
+    variantButton.setAttribute("aria-controls", "variant-modal");
+    label.className = "variant-link-label";
+    label.textContent = `${variants.length} ${getColorWord(variants.length)}`;
+    swatches.className = "variant-link-swatches";
+    swatches.setAttribute("aria-hidden", "true");
+
+    variants.forEach((variant) => {
+      const swatch = document.createElement("span");
+      swatch.style.setProperty("--swatch", variant.color || "#f3eadf");
+      swatches.append(swatch);
+    });
+
+    variantButton.append(label, swatches);
+    variantButton.addEventListener("click", () => openVariantModal(site, variants, variantButton));
+    cardActions.append(variantButton);
+  }
+
+  return node;
+}
+
+function getColorWord(count) {
+  const lastTwo = count % 100;
+  const last = count % 10;
+  if (lastTwo >= 11 && lastTwo <= 14) return "цветов";
+  if (last === 1) return "цвет";
+  if (last >= 2 && last <= 4) return "цвета";
+  return "цветов";
 }
 
 function renderCards({ append = false } = {}) {
@@ -810,95 +1029,19 @@ function renderCards({ append = false } = {}) {
 
   if (!append) grid.innerHTML = "";
   totalCount.textContent = String(sites.length).padStart(2, "0");
+  document.querySelector("#collection-count").textContent = `${sites.length} ${getDesignWord(sites.length)}`;
   if (resultCount) {
     const activeCategory = categories.find((category) => category.value === state.filter);
     resultCount.textContent = `${activeCategory?.label || "Каталог"} · ${filteredSites.length} ${getDesignWord(filteredSites.length)}`;
   }
-  emptyState.hidden = true;
+  emptyState.hidden = filteredSites.length !== 0;
 
-  visibleSites.forEach((site, index) => {
-    const node = template.content.firstElementChild.cloneNode(true);
-    const mediaLink = node.querySelector(".site-card-media");
-    const desktopPreview = node.querySelector(".catalog-preview-desktop");
-    const mobilePreview = node.querySelector(".catalog-preview-mobile");
-    const badge = node.querySelector(".badge");
-    const category = node.querySelector(".category");
-    const title = node.querySelector("h3");
-    const description = node.querySelector(".description");
-    const priceBlock = node.querySelector(".site-price");
-    const priceValue = priceBlock?.querySelector("strong");
-    const priceNote = node.querySelector(".price-note");
-    const mainLink = node.querySelector(".link-main");
-    const copyButton = node.querySelector(".copy-link");
-    const cardActions = node.querySelector(".card-actions");
-    const devNote = node.querySelector(".dev-note");
-    const isReady = Boolean(site.url);
-    const hasCover = Boolean(site.coverImage);
-    const desktopImage = site.coverImage || site.previewDesktop || fallbackPreview;
-    const mobileImage = site.coverImage || site.previewMobile || site.previewDesktop || fallbackPreview;
-
-    node.classList.toggle("has-cover", hasCover);
-    node.style.setProperty("--card-index", index);
-
-    mediaLink.href = isReady ? site.url : contactUrl;
-    desktopPreview.style.backgroundImage = `url("${wedwed(desktopImage)}")`;
-    mobilePreview.style.backgroundImage = `url("${wedwed(mobileImage)}")`;
-    badge.textContent = isReady ? cardLabels[site.title] || site.mood : "В разработке";
-    category.textContent = site.category;
-    title.textContent = site.title;
-    description.textContent = site.description;
-
-    if (site.price && priceBlock && priceValue && priceNote) {
-      priceBlock.hidden = false;
-      priceValue.textContent = site.price;
-      priceNote.textContent = site.priceNote || "";
-      priceNote.hidden = !site.priceNote;
-    }
-
-    mainLink.href = isReady ? site.url : contactUrl;
-    mainLink.textContent = isReady ? "Открыть сайт" : "Запросить видео";
-    copyButton.textContent = isReady ? "Скопировать ссылку" : "Написать мне";
-    devNote.textContent = isReady ? "" : unavailableMessage;
-
-    if (!isReady) {
-      node.classList.add("is-unavailable");
-      mediaLink.removeAttribute("target");
-      mediaLink.removeAttribute("rel");
-      mainLink.removeAttribute("target");
-      mainLink.removeAttribute("rel");
-      copyButton.hidden = true;
-    }
-
-    if (isReady) {
-      copyButton.addEventListener("click", async () => {
-        const absoluteUrl = new URL(site.url, window.location.href).href;
-        await copyText(absoluteUrl);
-        copyButton.textContent = "Ссылка скопирована";
-        copyButton.classList.add("is-copied");
-        setTimeout(() => {
-          copyButton.textContent = "Скопировать ссылку";
-          copyButton.classList.remove("is-copied");
-        }, 1800);
-      });
-    }
-
-    const variants = getVariants(site);
-
-    if (variants.length > 1) {
-      const variantButton = document.createElement("button");
-      variantButton.type = "button";
-      variantButton.className = "variant-link";
-      variantButton.textContent = "Цветовые варианты";
-      variantButton.addEventListener("click", () => openVariantModal(site, variants));
-      cardActions.append(variantButton);
-    }
-
-    fragment.append(node);
-  });
+  visibleSites.forEach((site, index) => fragment.append(createSiteCard(site, renderedCount + index)));
 
   grid.append(fragment);
 
   renderShowMore(filteredSites.length);
+  updateDockState();
 }
 
 function getDesignWord(count) {
@@ -914,7 +1057,9 @@ function renderShowMore(total) {
   if (!showMoreButton) return;
   const hasMore = state.visibleCount < total;
   showMoreButton.hidden = !hasMore;
-  showMoreButton.textContent = hasMore ? `Показать еще ${Math.min(loadMoreCount, total - state.visibleCount)}` : "";
+  showMoreButton.closest(".show-more-wrap").hidden = !hasMore;
+  const remainingCount = Math.min(loadMoreCount, total - state.visibleCount);
+  showMoreButton.textContent = hasMore ? `ПОКАЗАТЬ ЕЩЁ ${remainingCount} ${getDesignWord(remainingCount).toUpperCase()} ↓` : "";
 }
 
 function getVariants(site) {
@@ -941,7 +1086,7 @@ function getVariants(site) {
   ];
 }
 
-function openVariantModal(site, variants) {
+function openVariantModal(site, variants, opener) {
   if (!variantModal || !variantModalOptions || !variantModalTitle) return;
 
   variantModalTitle.textContent = site.title;
@@ -949,46 +1094,51 @@ function openVariantModal(site, variants) {
 
   variants.forEach((variant) => {
     const option = document.createElement("a");
+    const swatch = document.createElement("span");
+    const label = document.createElement("span");
+    const arrow = document.createElement("span");
+
     option.className = "variant-option";
     option.href = variant.url;
     option.target = "_blank";
     option.rel = "noreferrer";
-    option.textContent = variant.name;
-    option.style.backgroundColor = variant.color;
-    option.style.color = variant.textColor || "#15100f";
+    option.setAttribute("aria-label", `${variant.name} — посмотреть демо ${site.title} (новая вкладка)`);
+    option.style.setProperty("--variant-color", variant.color || "#f3eadf");
+    swatch.className = "variant-option-swatch";
+    label.className = "variant-option-label";
+    label.textContent = variant.name;
+    arrow.className = "variant-option-arrow";
+    arrow.textContent = "↗";
+    arrow.setAttribute("aria-hidden", "true");
+    option.append(swatch, label, arrow);
     variantModalOptions.append(option);
   });
 
+  variantOpener = opener || document.activeElement;
+  modalBackground = Array.from(document.body.children)
+    .filter((element) => element !== variantModal && element.tagName !== "SCRIPT")
+    .map((element) => ({ element, inert: element.inert }));
+  modalBackground.forEach(({ element }) => { element.inert = true; });
   variantModal.hidden = false;
   document.body.classList.add("is-modal-open");
+  variantModal.querySelector(".variant-modal-close").focus({ preventScroll: true });
 }
 
 function closeVariantModal() {
   if (!variantModal) return;
   variantModal.hidden = true;
   document.body.classList.remove("is-modal-open");
-}
-
-async function copyText(text) {
-  if (navigator.clipboard && window.isSecureContext) {
-    await navigator.clipboard.writeText(text);
-    return;
-  }
-
-  const input = document.createElement("textarea");
-  input.value = text;
-  input.setAttribute("readonly", "");
-  input.style.position = "fixed";
-  input.style.opacity = "0";
-  document.body.append(input);
-  input.select();
-  document.execCommand("copy");
-  input.remove();
+  modalBackground.forEach(({ element, inert }) => { element.inert = inert; });
+  modalBackground = [];
+  if (variantOpener?.isConnected) variantOpener.focus({ preventScroll: true });
+  variantOpener = null;
 }
 
 showMoreButton?.addEventListener("click", () => {
+  const previousCount = grid.childElementCount;
   state.visibleCount += loadMoreCount;
   renderCards({ append: true });
+  grid.children[previousCount]?.querySelector(".site-card-media").focus();
 });
 
 sortSelect?.addEventListener("change", (event) => {
@@ -1002,22 +1152,81 @@ const dockSections = dockLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
 
+const headerNav = document.querySelector(".nav");
+const dock = document.querySelector(".mobile-dock");
+const hero = document.querySelector(".hero");
+let previousScrollY = window.scrollY;
+let navigationFrame = 0;
+
 function updateDockState() {
+  if (variantModal && !variantModal.hidden) {
+    navigationFrame = 0;
+    return;
+  }
   const marker = window.scrollY + window.innerHeight * 0.34;
   let activeSection = null;
-
   dockSections.forEach((section) => {
-    if (section.offsetTop <= marker) activeSection = section;
+    if (section.getBoundingClientRect().top + window.scrollY <= marker) activeSection = section;
   });
-
+  if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 8) {
+    activeSection = dockSections.at(-1);
+  }
   dockLinks.forEach((link) => {
-    link.classList.toggle("is-active", activeSection && link.getAttribute("href") === `#${activeSection.id}`);
+    const active = Boolean(activeSection && link.hash === `#${activeSection.id}`);
+    link.classList.toggle("is-active", active);
+    if (active) link.setAttribute("aria-current", "location");
+    else link.removeAttribute("aria-current");
   });
+  headerNav.classList.toggle("is-scrolled", window.scrollY > 24);
+  const mobile = window.matchMedia("(max-width: 720px)").matches;
+  // On phones, reveal the header when scrolling up; the section dock stays accessible.
+  if (!mobile || window.scrollY < 100) headerNav.classList.remove("is-hidden");
+  else if (Math.abs(window.scrollY - previousScrollY) > 8 && !headerNav.contains(document.activeElement)) {
+    headerNav.classList.toggle("is-hidden", window.scrollY > previousScrollY);
+  }
+  dock.hidden = !mobile && window.scrollY < hero.offsetHeight * .75;
+  // Give card actions the whole touch area when they cross the floating dock.
+  const dockRect = dock.getBoundingClientRect();
+  const obstructing = !dock.hidden && !dock.contains(document.activeElement) &&
+    Array.from(grid.querySelectorAll(".card-actions")).some((actions) => {
+      const rect = actions.getBoundingClientRect();
+      return rect.bottom > dockRect.top - 8 && rect.top < dockRect.bottom + 8 &&
+        rect.right > dockRect.left && rect.left < dockRect.right;
+    });
+  dock.classList.toggle("is-obstructing", obstructing);
+  dock.inert = obstructing;
+  if (obstructing) dock.setAttribute("aria-hidden", "true");
+  else dock.removeAttribute("aria-hidden");
+  previousScrollY = window.scrollY;
+  navigationFrame = 0;
 }
 
-window.addEventListener("scroll", updateDockState, { passive: true });
+window.addEventListener("scroll", () => {
+  if (!navigationFrame) navigationFrame = requestAnimationFrame(updateDockState);
+}, { passive: true });
 window.addEventListener("resize", updateDockState);
+headerNav.addEventListener("focusin", () => headerNav.classList.remove("is-hidden"));
+dock.addEventListener("focusout", () => requestAnimationFrame(updateDockState));
 updateDockState();
+
+const revealItems = Array.from(document.querySelectorAll("[data-reveal]"));
+
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.14, rootMargin: "0px 0px -8%" },
+  );
+
+  revealItems.forEach((item) => revealObserver.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add("is-visible"));
+}
 
 variantModal?.addEventListener("click", (event) => {
   if (event.target.closest("[data-close-variants]")) {
@@ -1026,8 +1235,21 @@ variantModal?.addEventListener("click", (event) => {
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && variantModal && !variantModal.hidden) {
+  if (!variantModal || variantModal.hidden) return;
+  if (event.key === "Escape") {
+    event.preventDefault();
     closeVariantModal();
+  } else if (event.key === "Tab") {
+    const focusable = Array.from(variantPanel.querySelectorAll("a[href], button"));
+    const first = focusable[0];
+    const last = focusable.at(-1);
+    if (event.shiftKey && (document.activeElement === first || document.activeElement === variantPanel)) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
   }
 });
 
