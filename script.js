@@ -776,7 +776,7 @@ const sites = [
     "category": "Взрослый день рождения",
     "format": "День рождения",
     "mood": "Готовый шаблон",
-    "coverImage": "assets/catalog/birthday-lightness-cover.jpg",
+    "coverImage": "assets/catalog/birthday-lightness-cover.jpg?v=20261111-lightness-cover",
     "url": "https://birthday-invitation.github.io/happybirthdayinna/",
     "description": "Сайт-приглашение на день рождения в нежных пудровых тонах.",
     "price": "1500 ₽",
